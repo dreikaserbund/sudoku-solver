@@ -6,3 +6,7 @@ class Cell:
 		self.digit = None
 		self.coordinates = (x, y)
 		self.possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+	def set_digit(self, n):
+		"""Set self.digit to n"""
+		self.digit = n
