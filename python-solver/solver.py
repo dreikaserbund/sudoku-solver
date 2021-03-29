@@ -20,3 +20,8 @@ class Cell:
 		# Removes n from self.possibilities
 		self.possibilities = self.possibilities[:i] + self.possibilities[i+1:]
 		return self.possibilities
+
+class Grid:
+	"""A full sudoku grid"""
+	def __init__(self):
+		pass
