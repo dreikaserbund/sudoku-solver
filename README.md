@@ -8,4 +8,4 @@ solves sudoku
 * row - horizontal group of cells
 * column - vertical group of cells
 * block - square group of cells
-* given - a cell with a predetermined digit. used as clues in solving the rest
+* hint - a cell with a predetermined digit. used as clues in solving the rest
