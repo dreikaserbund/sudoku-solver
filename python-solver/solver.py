@@ -10,3 +10,13 @@ class Cell:
 	def set_digit(self, n):
 		"""Set self.digit to n"""
 		self.digit = n
+
+	def remove_possibility(self, n):
+		"""Remove n from self.possibilities, return self.possibilities.
+		Expects an int, returns a list
+		"""
+		# Raises a ValueError if n not in self.possibilities
+		i = self.possibilities.index(n)
+		# Removes n from self.possibilities
+		self.possibilities = self.possibilities[:i] + self.possibilities[i+1:]
+		return self.possibilities
