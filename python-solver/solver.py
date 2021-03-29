@@ -24,4 +24,10 @@ class Cell:
 class Grid:
 	"""A full sudoku grid"""
 	def __init__(self):
+		self.graph = self.create_graph()
+
+	def create_graph(self):
+		"""Creates 81 cells, and a graph where every cell is a node connected to every other cell in a group with it.
+		Returns a dictionary
+		"""
 		pass
