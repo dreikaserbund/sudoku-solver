@@ -24,14 +24,18 @@ class Cell:
 class Grid:
 	"""A full sudoku grid"""
 	def __init__(self, hints={}):
-		self.graph = self.create_graph()
+		self.graph = dict()
+		self.create_graph()
 		self.fill_hints(hints)
 
 	def create_graph(self):
 		"""Creates 81 cells, and a graph where every cell is a node connected to every other cell in a group with it.
 		Returns a dictionary
 		"""
-		pass
+		for x in range(9):
+			for y in range(9):
+				self.graph[(x, y)] = self.create_cell(x, y)
+
 	def create_cell(self, x, y):
 		"""Creates a Cell at (x, y)"""
 		return Cell(x, y)
