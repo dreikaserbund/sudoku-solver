@@ -32,6 +32,9 @@ class Grid:
 		Returns a dictionary
 		"""
 		pass
+	def create_cell(self, x, y):
+		"""Creates a Cell at (x, y)"""
+		return Cell(x, y)
 
 	def fill_hints(self, hints):
 		"""Fills hints into grid.
