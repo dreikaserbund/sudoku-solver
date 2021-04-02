@@ -44,4 +44,5 @@ class Grid:
 		"""Fills hints into grid.
 		Expects dictionary in the form of {(int, int): int}
 		"""
-		pass
+		for coord, digit in hints.items():
+			self.graph[coord].set_digit(digit)
