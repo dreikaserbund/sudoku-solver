@@ -28,6 +28,21 @@ class Grid:
 		self.create_graph()
 		self.fill_hints(hints)
 
+	def __str__(self):
+		"""Returns a ascii art of the gridstate"""
+		# list of all digits in the grid as strings, with filler for an empty digit
+		grid_list = list()
+		# used in place of an empty cell
+		filler = "."
+		for y in range(9):
+			for x in range(9):
+				digit_int = self.graph[(x,y)].digit
+				if digit_int:
+					grid_list.append(digit_int)
+				else:
+					grid_list.append(filler)
+		return "{} {} {}|{} {} {}|{} {} {}\n{} {} {}|{} {} {}|{} {} {}\n{} {} {}|{} {} {}|{} {} {}\n-----+-----+-----\n{} {} {}|{} {} {}|{} {} {}\n{} {} {}|{} {} {}|{} {} {}\n{} {} {}|{} {} {}|{} {} {}\n-----+-----+-----\n{} {} {}|{} {} {}|{} {} {}\n{} {} {}|{} {} {}|{} {} {}\n{} {} {}|{} {} {}|{} {} {}".format(*grid_list)
+
 	def create_graph(self):
 		"""Creates 81 cells, and a graph where every cell is a node connected to every other cell in a group with it.
 		Returns a dictionary
