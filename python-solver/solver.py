@@ -6,6 +6,7 @@ class Cell:
 		self.digit = None
 		self.coordinates = (x, y)
 		self.possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.neighbors = list()
 
 	def set_digit(self, n):
 		"""Set self.digit to n"""
@@ -20,6 +21,10 @@ class Cell:
 		# Removes n from self.possibilities
 		self.possibilities = self.possibilities[:i] + self.possibilities[i+1:]
 		return self.possibilities
+
+    def add_neighbor(self, cell):
+        if not ((cell is self) or (cell in self.neighbors)):
+            self.neighbors.append(cell)
 
 class Grid:
 	"""A full sudoku grid"""
