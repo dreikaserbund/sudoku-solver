@@ -31,6 +31,7 @@ class Grid:
 	def __init__(self, hints={}):
 		self.graph = dict()
 		self.create_graph()
+        self.set_all_connections()
 		self.fill_hints(hints)
 
 	def __str__(self):
@@ -66,3 +67,15 @@ class Grid:
 		"""
 		for coord, digit in hints.items():
 			self.graph[coord].set_digit(digit)
+
+    def set_all_connections(self):
+        for x in range(9):
+            for y in range(9):
+                cell = self.graph[(x, y)]
+                self.set_outward_connections(cell)
+
+    def set_outward_connections(self, cell):
+        x, y = cell.coordinates
+        for n in range(9):
+            cell.add_neighbor(self.graph[(x, n)])
+            cell.add_neighbor(self.graph[(n, y)])
