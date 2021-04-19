@@ -79,3 +79,7 @@ class Grid:
         for n in range(9):
             cell.add_neighbor(self.graph[(x, n)])
             cell.add_neighbor(self.graph[(n, y)])
+        bx, by = (x//3*3), (y//3*3) # start x and y of cell's block
+        for a in range(bx, bx+3):
+            for b in range(by, by+3):
+                cell.add_neighbor(self.graph[(a, b)])
