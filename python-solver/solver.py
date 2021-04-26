@@ -2,7 +2,7 @@
 
 class Cell:
     """One cell on a grid"""
-    def __init__(self, x, y):
+    def __init__(self, x, y, grid):
         self.digit = None
         self.coordinates = (x, y)
         self.possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -59,7 +59,7 @@ class Grid:
 
     def create_cell(self, x, y):
         """Creates a Cell at (x, y)"""
-        return Cell(x, y)
+        return Cell(x, y, self)
 
     def fill_hints(self, hints):
         """Fills hints into grid.
