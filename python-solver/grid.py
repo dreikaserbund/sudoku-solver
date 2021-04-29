@@ -1,4 +1,4 @@
-"""Solves sudoku puzzlse"""
+"""Sudoku puzzle grid"""
 
 class Cell:
     """One cell on a grid"""
