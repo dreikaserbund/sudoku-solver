@@ -1,7 +1,7 @@
 """Solves sudoku puzzles"""
 
 import time
-from grid.py import Grid, Cell
+from grid import Grid, Cell
 
 
 def debug_print_board(grid, debug):
