@@ -11,6 +11,8 @@ class Cell:
     def set_digit(self, n):
         """Set self.digit to n"""
         self.digit = n
+        # adds self to list of solved cells in the grid
+        grid.solved_cells.append(self)
 
     def remove_possibility(self, n):
         """Remove n from self.possibilities, return self.possibilities.
@@ -30,6 +32,7 @@ class Grid:
     """A full sudoku grid"""
     def __init__(self, hints={}):
         self.graph = dict()
+        self.solved_cells = list()
         self.create_graph()
         self.set_all_connections()
         self.fill_hints(hints)
@@ -67,6 +70,7 @@ class Grid:
         """
         for coord, digit in hints.items():
             self.graph[coord].set_digit(digit)
+            self.solved_cells.append(self.graph[coord])
 
     def set_all_connections(self):
         for x in range(9):
