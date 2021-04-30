@@ -2,6 +2,7 @@
 
 import time
 from grid import Grid, Cell
+from puzzles import easy_puzzles, expert_puzzles
 
 
 def debug_print_board(grid, debug):
@@ -28,3 +29,5 @@ def solve(hints, debug=False):
 	print(grid)
 	print("\n\n")
 
+if __name__ == "__main__":
+	solve(easy_puzzles[1], True)
