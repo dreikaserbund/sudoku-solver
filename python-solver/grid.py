@@ -3,6 +3,7 @@
 class Cell:
     """One cell on a grid"""
     def __init__(self, x, y, grid):
+        self.grid = grid
         self.digit = None
         self.coordinates = (x, y)
         self.possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -12,7 +13,7 @@ class Cell:
         """Set self.digit to n"""
         self.digit = n
         # adds self to list of solved cells in the grid
-        grid.solved_cells.append(self)
+        self.grid.solved_cells.append(self)
 
     def remove_possibility(self, n):
         """Remove n from self.possibilities, return self.possibilities.
