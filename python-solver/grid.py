@@ -70,7 +70,6 @@ class Grid:
         """
         for coord, digit in hints.items():
             self.graph[coord].set_digit(digit)
-            self.solved_cells.append(self.graph[coord])
 
     def set_all_connections(self):
         for x in range(9):
