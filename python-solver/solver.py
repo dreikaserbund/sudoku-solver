@@ -12,11 +12,7 @@ def debug_print_board(grid, debug):
 		print("\n\n")
 		time.sleep(.5)
 
-def solve(hints, debug=False):
-	grid = Grid(hints)
-	print("Unsolved:")
-	print(grid)
-	print("\n\n")
+def solve(grid, debug=False):
 	while len(grid.solved_cells) < 81:
 		for solved in grid.solved_cells:
 			for unsolved in filter(lambda x: not x.digit, solved.neighbors):
@@ -30,4 +26,8 @@ def solve(hints, debug=False):
 	print("\n\n")
 
 if __name__ == "__main__":
-	solve(easy_puzzles[1], True)
+	grid = Grid(medium_puzzles[0], True)
+	print("Unsolved:")
+	print(grid)
+	print("\n\n")
+	solve(grid, True)
