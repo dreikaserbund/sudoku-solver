@@ -8,6 +8,9 @@ class Cell:
         self.coordinates = (x, y)
         self.possibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         self.neighbors = list()
+        # Add self to unsolved cells list in parent grid
+        self.grid.unsolved_cells.append(self)
+
     def __eq__(self, other):
         return self.coordinates == other.coordinates
 
@@ -16,6 +19,8 @@ class Cell:
         self.digit = n
         # adds self to list of solved cells in the grid
         self.grid.solved_cells.append(self)
+        # remove self from list of unsolved cells in parent grid
+        self.grid.unsolved_cells.remove(self)
 
     def remove_possibility(self, n):
         """Remove n from self.possibilities, return self.possibilities.
@@ -36,6 +41,7 @@ class Grid:
     def __init__(self, hints={}):
         self.graph = dict()
         self.solved_cells = list()
+        self.unsolved_cells = list()
         self.create_graph()
         self.set_all_connections()
         self.fill_hints(hints)
