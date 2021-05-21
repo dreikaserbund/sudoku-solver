@@ -2,7 +2,7 @@
 
 import time
 from grid import Grid, Cell
-from puzzles import easy_puzzles, expert_puzzles
+from puzzles import easy_puzzles, medium_puzzles, expert_puzzles
 
 
 def debug_print_board(grid, debug):
