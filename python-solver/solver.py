@@ -30,7 +30,7 @@ def solve(grid, debug=False):
 	print("\n\n")
 
 if __name__ == "__main__":
-	grid = Grid(medium_puzzles[0], True)
+	grid = Grid(medium_puzzles[0])
 	print("Unsolved:")
 	print(grid)
 	print("\n\n")
