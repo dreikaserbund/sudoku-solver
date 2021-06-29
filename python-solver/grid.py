@@ -16,6 +16,10 @@ class Cell:
 
     def set_digit(self, n):
         """Set self.digit to n"""
+        # check for contradictions
+        for cell in self.neighbors:
+        	if cell.digit == n:
+        		raise Exception("Impossible grid state, reverting to before last guess")
         self.digit = n
         # adds self to list of solved cells in the grid
         self.grid.solved_cells.append(self)
