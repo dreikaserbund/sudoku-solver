@@ -57,6 +57,12 @@ def solve(grid, debug=False):
 	return grid
 
 def main():
+	try:
+		grid = Grid(unsolvable_puzzles[3])
+	except Exception as e:
+		print("Illegal starting grid. Impossible to solve")
+		print(e)
+		return
 	print("Unsolved:")
 	print(grid)
 	print("\n\n")
