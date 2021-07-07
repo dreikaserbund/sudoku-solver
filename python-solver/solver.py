@@ -28,7 +28,7 @@ def solve(grid, debug=False):
 					board_unchanged = False
 					debug_print_board(grid, debug)
 		if board_unchanged:
-			print("Starting guessing algorithm")
+			# print("Starting guessing algorithm")
 			for unsolved in grid.unsolved_cells:
 				# find an unsolved cell with only 2 possibilities
 				if len(unsolved.possibilities) == 2:
@@ -38,18 +38,18 @@ def solve(grid, debug=False):
 					guess = unsolved.possibilities[0]
 					grid1.graph[unsolved.coordinates].set_digit(guess)
 					try:
-						print("Making guess:")
+						# print("Making guess:")
 						debug_print_board(grid1, debug)
 						return solve(grid1, debug)
 					except Exception as e: # first guess was incorrect
-						print(e)
+						# print(e)
 						# create a copy of grid to test a guess
 						grid2 = copy.deepcopy(grid)
 						# guess second  possibility
 						guess = unsolved.possibilities[1]
 						grid2.graph[unsolved.coordinates].set_digit(guess)
 						
-						print("Making second guess")
+						# print("Making second guess")
 						debug_print_board(grid2, debug)
 						return solve(grid2, debug)
 			return grid
