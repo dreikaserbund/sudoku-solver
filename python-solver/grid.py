@@ -49,6 +49,7 @@ class Grid:
         self.create_graph()
         self.set_all_connections()
         self.fill_hints(hints)
+        self.solved = False
 
     def __str__(self):
         """Returns a ascii art of the gridstate"""

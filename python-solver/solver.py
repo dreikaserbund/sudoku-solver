@@ -53,17 +53,20 @@ def solve(grid, debug=False):
 						debug_print_board(grid2, debug)
 						return solve(grid2, debug)
 			return grid
+	grid.solved = True
 	return grid
 
-if __name__ == "__main__":
-	grid = Grid(medium_puzzles[0])
+def main():
 	print("Unsolved:")
 	print(grid)
 	print("\n\n")
-	grid = solve(grid, True)
-	try:
+	grid = solve(grid)
+	if grid.solved:
 		print("Solved:")
 		print(grid)
-	except Exception as e:
+	else:
 		print("Unable to solve:")
 		print(grid)
+
+if __name__ == "__main__":
+	main()
