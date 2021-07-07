@@ -56,6 +56,13 @@ def solve(grid, debug=False):
 	grid.solved = True
 	return grid
 
+def one_solution(grid):
+	starting_digits = list()
+	for cell in grid.solved_cells:
+		if cell.digit not in starting_digits:
+			starting_digits.append(cell.digit)
+	return len(starting_digits) == 9
+
 def main():
 	try:
 		grid = Grid(unsolvable_puzzles[3])
@@ -66,6 +73,8 @@ def main():
 	print("Unsolved:")
 	print(grid)
 	print("\n\n")
+	if not one_solution(grid):
+		print("Multiple solutions")
 	grid = solve(grid)
 	if grid.solved:
 		print("Solved:")
